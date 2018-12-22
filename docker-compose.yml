@@ -1,0 +1,32 @@
+version: "3"
+
+volumes:
+  local_postgres_data: {}
+
+services: 
+  web:
+    build: ./Backend
+    ports:
+      - "5000:5000"
+      - "5001:5001"
+    depends_on:
+      - db
+    volumes:
+      - ./backend:/app
+      - /app/GadgetDepot/bin
+      - /app/GadgetDepot/obj
+
+  db:
+    image: postgres:11.1
+    environment:
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_USERNAME: postgres
+    volumes:
+      - local_postgres_data:/var/lib/postgresql/data
+
+  client:
+    build: ./Frontend
+    ports:
+      - "4200:4200"
+    volumes:
+      - ./frontend:/app
