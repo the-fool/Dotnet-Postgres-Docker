@@ -1,6 +1,6 @@
-# Dotnet Core | Postgres | Docker | Angular
+# .NET Core | Postgres | Docker | Angular
 
-An _eazy-peazy_ template for building a Dotnet Core app with Postgres.
+An eazy-peazy template for building a .NET Core app with Postgres.
 
 ## To Run
 
